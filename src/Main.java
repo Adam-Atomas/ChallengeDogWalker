@@ -5,11 +5,11 @@ public class Main {
         System.out.println(c);
         int hr = c.addDogs();
         System.out.println(c);
-        DogWalker w = new DogWalker(4,c);
-        System.out.println(w.walkDogs(hr)+ " dogs walked. ");
-        System.out.println(c.numAvailableDogs(hr)+ " dogs remaining. ");
+        DogWalker w = new DogWalker(4, c);
+        System.out.println(w.walkDogs(hr) + " dogs walked. ");
+        System.out.println(c.numAvailableDogs(hr) + " dogs remaining. ");
 
-        for (int i = 7; i<11; i++) {
+        for (int i = 7; i < 11; i++) {
             c.addDogs();
         }
 
