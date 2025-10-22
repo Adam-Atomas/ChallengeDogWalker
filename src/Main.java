@@ -1,5 +1,11 @@
 import java.io.FileNotFoundException;
+import java.io.File;
+import java.util.Scanner;
 public class Main {
+    public static in read() throws FileNotFoundException{
+        int money = 0;
+        DogWalkerComp[] companies = new DogWalkerComp[1000];
+    }
     public static void main(String[] args) {
         DogWalker c = new DogWalker();
         System.out.println(c);
