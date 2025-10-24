@@ -2,7 +2,7 @@ import java.io.FileNotFoundException;
 import java.io.File;
 import java.util.Scanner;
 public class Main {
-    public static in read() throws FileNotFoundException{
+    public static int read() throws FileNotFoundException{
         int money = 0;
         DogWalkerComp[] companies = new DogWalkerComp[1000];
     }
@@ -23,4 +23,9 @@ public class Main {
         w = new DogWalker(3, c);
         System.out.println("$" + w.dogWalkShift(7, 10) + ".00 earned ");
     }
+
+}
+public static void main (String[]args) throws FileNotFoundExpeception
+{
+    System.out.println(read());
 }
