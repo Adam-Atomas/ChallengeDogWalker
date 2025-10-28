@@ -5,27 +5,36 @@ public class Main {
     public static int read() throws FileNotFoundException{
         int money = 0;
         DogWalkerComp[] companies = new DogWalkerComp[1000];
-    }
-    public static void main(String[] args) {
-        DogWalker c = new DogWalker();
-        System.out.println(c);
-        int hr = c.addDogs();
-        System.out.println(c);
-        DogWalker w = new DogWalker(4, c);
-        System.out.println(w.walkDogs(hr) + " dogs walked. ");
-        System.out.println(c.numAvailableDogs(hr) + " dogs remaining. ");
+        File f = new File("src/Companies.txt");
+        Scanner s = new Scanner(f);
+        int index = 0;
+        while(s.hasNextLine() && index < companies.length) {
+            int[] dogs = new int[24];
+            for (int i = 0; i < dogs.length && s.hasNextInt(); i++) {
+                dogs[i] = s.nextInt();
+            }
+                companies[index] = new DogWalkerComp(dogs);
+                index++;
+            }
+            DogWalkerComp[] walkers = new DogWalkerComp[(int)Math.pow(10,4)];
+            f= new File("src/walkers.txt");
+            s = new Scanner(f);
+            index=0;
+            while (s.hasNextLine() && index < walkers.length) {
+                int dogs = s.nextInt();
+                DogWalkerComp company = companies[s.nextInt()];
+                walkers[index] = new DogWalkerComp(dogs, company);
+                int start = s.nextInt();
+                int end = s.nextInt();
+                money += walkers[index].dogWalkShift(start, end);
+                index++;
+            }
+            return money;
 
-        for (int i = 7; i < 11; i++) {
-            c.addDogs();
         }
 
-        System.out.println(c);
-        w = new DogWalker(3, c);
-        System.out.println("$" + w.dogWalkShift(7, 10) + ".00 earned ");
-    }
+    public static void main (String[] args) throws FileNotFoundException {
 
-}
-public static void main (String[]args) throws FileNotFoundExpeception
-{
-    System.out.println(read());
+        System.out.println(read());
+    }
 }
